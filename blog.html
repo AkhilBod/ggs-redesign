@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Blog | Rohit Puri</title>
+<link rel="stylesheet" href="rohit.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a class="wordmark" href="/">Rohit Puri</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/career">Oracle career</a>
+      <a href="/products">Products &amp; Practice</a>
+      <a href="/blog" aria-current="page">Blog</a>
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/rohit-puri-882534/">Connect</a>
+      <button class="nav-menu" type="button">Menu</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:56px">
+    <div class="container hero-text">
+      <p class="kicker">Blog, daily</p>
+      <h1 style="max-width:760px">Notes on AI agent adoption.</h1>
+      <p class="lede measure">One short post every day at 11 a.m. Pacific on how real organizations are adopting AI agents: what's working, what's stalling, and what to do about it. Every post links its sources.</p>
+      <ul class="blog-meta">
+        <li id="post-count"></li>
+        <li>Written with AI-assisted research</li>
+        <li>Always check the sources</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="posts" id="posts"></div>
+    <div class="more" id="more" hidden><button type="button" id="more-btn">Show earlier posts</button></div>
+    <p class="note" style="max-width:680px;margin-top:40px">Posts are drafted by an AI research agent that reads the cited sources, then published automatically. They are summaries, not professional advice, and may contain errors. Please follow the source links before relying on anything here. Views are independent and are not an Oracle statement.</p>
+  </div>
+
+  <section class="section connect" style="margin-top:88px">
+    <div class="container cols-2">
+      <div class="stack">
+        <h2>Have a hard AI or cloud problem? Let's talk.</h2>
+        <p class="muted">Whether it's a leadership role, an AI project for your business, or a question about something I've built, the fastest way to reach me is LinkedIn.</p>
+        <div class="actions"><a class="btn btn-primary" href="https://www.linkedin.com/in/rohit-puri-882534/">Message me on LinkedIn</a></div>
+      </div>
+      <dl class="contact-list" style="align-self:end">
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/rohit-puri-882534/">linkedin.com/in/rohit-puri-882534</a></dd></div>
+        <div><dt>Golden Gate Solutions</dt><dd><a href="https://ggsgroup.com/">ggsgroup.com</a></dd></div>
+        <div><dt>Brisqo</dt><dd><a href="https://www.brisqo.net/">brisqo.net</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span>Rohit Puri, Santa Clara, California</span>
+    <nav aria-label="Footer">
+      <a href="/career">Oracle career</a>
+      <a href="/products">Products &amp; Practice</a>
+      <a href="/blog">Blog</a>
+    </nav>
+    <p class="preview-note">Redesign preview. The current site is <a href="https://rohit-puri-website.vercel.app/">rohit-puri-website.vercel.app</a>. Golden Gate Solutions preview: <a href="/ggs">/ggs</a>.</p>
+  </div>
+</footer>
+
+<script type="application/json" id="posts-data">{"posts":[{"id":"2026-10-29","date":"2026-10-29","title":"Shared keys and borrowed logins: how AI agents end up with access they should not have","body":["Agen.co by Frontegg's State of Autonomous Agent Governance, released October 27, surveyed 300 CISOs and CSOs at U.S. companies with 500 or more employees, fielded September 24 to 27 by Cint. Fifty-four percent reported an agent security incident in the past year, and 61 percent of those learned of it after the fact. Seventy-eight percent say they have pulled permissions from an agent already in production, though that includes routine reviews and not only incidents. Forty-nine percent found an agent running with access it should never have had.","The sharpest finding is about credentials. Fifty-three percent run agents on shared or long-lived API keys, and those companies reported a 60 percent incident rate versus 46 percent for those that do not. That is a correlation, not proof of cause. Forty percent run agents on an employee's own credentials, so logs point to a person rather than the agent. Only 18 percent verify an agent's identity before each action, while 45 percent check at session start. Confidence did not help much: 75 percent are very confident they know how many agents are connected, yet their incident rate was no lower, and only 34 percent get that count from a tool that discovers agents automatically.","Agen.co sells agent governance products, the sample is 300 security executives at large U.S. firms, and the answers are self-reported, so read the figures as directional."],"takeaway":"Give every agent its own short-lived credential scoped to one task, and review what it can reach before you add the next one.","sources":[{"title":"78% of Enterprises Have Pulled Permissions From an AI Agent Already in Production","publisher":"Agen.co by Frontegg via PR Newswire","url":"https://www.prnewswire.com/news-releases/78-of-enterprises-have-pulled-permissions-from-an-ai-agent-already-in-production-302920128.html"},{"title":"The State of Autonomous Agent Governance","publisher":"Agen.co by Frontegg","url":"https://agen.co/resources/research/state-of-autonomous-agent-governance"}]},{"id":"2026-10-28","date":"2026-10-28","title":"Salesforce: stronger agent governance meant slower ROI, but fewer surprises","body":["Salesforce's State of Agentic AI in the Enterprise report surveyed 2,025 agentic AI decision-makers across 20 countries. A Salesforce small-business blog post dated October 27 summarizes it. Organizations with agents live in production reached ROI in about 8 months on average. Respondents tied the fastest, most autonomous rollouts to two things, clean data where the agent acts and a tightly bounded use case, each cited by 36 percent.","The governance trade-off is the useful part. Organizations with above-average governance took longer to reach ROI, 9.3 months versus 7.2 months for those with below-average governance, but they caught problems proactively 68 percent of the time versus 55 percent. Among the 43 percent that had to stall or scale back an AI initiative, the top regret, at 39 percent, was not budgeting for AI training and reskilling upfront, and 38 percent wished they had set clearer governance before scaling.","Data does not have to be perfect first. Only 31 percent fully unified their data before deploying agents, and 69 percent of the rest still reached ROI, though 63 percent hit agent errors tied to stale, missing or wrong data. Also, 81 percent reported more human reentry into workflows as deployments expanded. Salesforce sells agent software and the answers are self-reported, so read the figures as directional."],"takeaway":"Pick one tightly bounded use case, fix the data behind it, and accept a few extra weeks of governance and training up front in exchange for catching problems early.","sources":[{"title":"4 Takeaways From the State of Agentic AI Report for Small Business","publisher":"Salesforce","url":"https://www.salesforce.com/blog/small-business/takeaways-from-the-state-of-agentic-ai-report-for-smb/"},{"title":"The State of Agentic AI in the Enterprise 2026","publisher":"Salesforce","url":"https://www.salesforce.com/products/resources/state-of-agentic-ai-in-enterprise/"}]},{"id":"2026-10-27","date":"2026-10-27","title":"Watching AI agents is getting expensive, and most teams cannot control the bill","body":["Cisco's Splunk State of Observability 2026 report, released October 20 and based on an Oxford Economics survey of 2,050 IT operations and engineering professionals in 10 countries, points to a cost that rarely appears in agent business cases: monitoring the agents. Fifty-seven percent of respondents say their telemetry costs now exceed the cost of the infrastructure being monitored, and 55 percent say they cannot adequately control AI costs. Sixty percent say unexpected billing spikes cause more operational strain than consistently high expenses.","Monitoring itself is immature. Although 87 percent call AI monitoring a priority, 56 percent cannot measure essential indicators such as LLM response quality, 49 percent say their current tools lack sufficient AI monitoring features, and 38 percent report no clearly designated owner. Eighty-three percent worry about unintended actions by AI agents. Thirty-eight percent have responded by limiting telemetry collection or retention, which saves money but removes the history needed to diagnose intermittent problems.","Cisco says the more advanced group could identify AI costs by workload far more often, 91 percent versus 69 percent. The survey was fielded in February and March, Cisco sells observability software, and the revenue links it reports are self-reported, so read the figures as directional."],"takeaway":"Before scaling an agent, name an owner for monitoring it, tag its costs to a single workload, and set a spending alert so a billing spike does not arrive as a surprise.","sources":[{"title":"Report: AI Agents Increase Observability Costs","publisher":"DevOps.com","url":"https://devops.com/report-ai-agents-increase-observability-costs/"},{"title":"Splunk State of Observability 2026: Avoiding the Hidden Costs of AI Agents","publisher":"Cisco Newsroom","url":"https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m10/splunk-state-of-observability-2026-avoiding-the-hidden-costs-of-ai-agents.html"}]},{"id":"2026-10-26","date":"2026-10-26","title":"UK financial firms run AI agents widely, but only 2% give them broad autonomy","body":["The Bank of England and Financial Conduct Authority published their fourth joint AI survey of UK financial services on October 26. Among respondents, 86 percent use AI, up from 75 percent in 2024, and 80 percent already have AI agents deployed, with another 14 percent planning to within 12 months. Enterprise agents and coding agents are the most widely deployed types, and multi-agent systems are expected to grow fastest.","The notable part is how little autonomy firms grant. The 80 percent figure is mostly decision support, where agents recommend actions and humans decide and execute. Only 2 percent reported agents with broad autonomy. Even counting plans for the next 12 months, no more than 9 percent expect agents to approve or decline customer outcomes, execute trades, initiate or block payments, or change limits and controls. Automated customer communications is further along, at 16 percent today and 34 percent including plans.","Governance has a gap. Most firms report formal frameworks, inventories and materiality assessments, but post-deployment monitoring is less common than pre-deployment controls. Third-party systems account for 39 percent of all AI deployments. This is a regulated-finance sample and the answers are self-reported, so read the figures as directional. Still, narrow autonomy plus strong pre-launch checks is a useful benchmark for any business."],"takeaway":"Default new agents to recommend-only, keep humans on approvals and payments, and budget for monitoring after launch, not just testing before it.","sources":[{"title":"Artificial intelligence in UK financial services - 2026","publisher":"Bank of England and Financial Conduct Authority","url":"https://www.bankofengland.co.uk/report/2026/artificial-intelligence-in-uk-financial-services-2026"},{"title":"BoE and FCA publish joint report on AI in UK financial services","publisher":"Global Regulation Tomorrow","url":"https://www.regulationtomorrow.com/2026/10/boe-and-fca-publish-joint-report-on-ai-in-uk-financial-services/"}]},{"id":"2026-10-25","date":"2026-10-25","title":"Managers say AI agents are making it harder to judge their teams' work","body":["A Nielsen survey of 1,701 directors and senior managers in seven countries, commissioned by monday.com and published October 21, found that 96 percent use AI at work but only 29 percent say AI is fully integrated into a centralized operating system. Fifty-seven percent say their organizations use more software tools since adopting AI, the opposite of the consolidation many expected.","The cost lands on managers. More than half say AI has made it harder to evaluate employees' work, because polished output hides how much came from the person. Nearly half say they spend more time reviewing and guiding their teams, and 78 percent now put more weight on skills such as prompting and deciding what to delegate to AI. Forty-six percent use AI to inform decisions and 39 percent use it to draft performance reviews, which raises bias concerns that monday.com's researcher said companies have yet to work out how to address.","Control is the other worry. Fifty-eight percent expect to oversee more AI agents than human employees within a year, 46 percent worry about losing control of agents' actions, and 52 percent worry about agents accessing data without sufficient restrictions. monday.com sells work-management software and the answers are self-reported, so read the figures as directional."],"takeaway":"Before rolling agents out further, update how you evaluate work and set rules for what agents can access and do without approval, so managers are not left to improvise.","sources":[{"title":"AI Adoption Outpaces Enterprise Governance, Raising Data Security Concerns","publisher":"CDO Magazine","url":"https://www.cdomagazine.tech/aiml/ai-adoption-outpaces-enterprise-governance-raising-data-security-concerns"},{"title":"AI Adoption Makes It Harder for Managers to Evaluate Staff, Monday.com Survey Finds","publisher":"The AI Insider","url":"https://theaiinsider.tech/2026/10/22/ai-adoption-makes-it-harder-for-managers-to-evaluate-staff-monday-com-survey-finds/"}]},{"id":"2026-10-24","date":"2026-10-24","title":"Big companies are pulling ahead on AI agents while smaller ones stall","body":["McKinsey's 2026 State of AI survey, fielded May 4 to June 8 with 1,719 respondents in 97 countries, shows a widening gap by company size. Among organizations with more than $1 billion in annual revenue, 40 percent of respondents say they are scaling AI agents in at least one function, up from 27 percent a year earlier. At smaller organizations the figure is 22 percent, essentially flat. Overall, 54 percent of the large organizations report scaling AI across the enterprise, versus about one-third of smaller ones.","Scale does not automatically mean payoff. Thirty-seven percent of respondents attribute at least some EBIT impact to AI, about the same as last year, and only roughly 6 percent qualify as high performers. McKinsey says those high performers are far more likely to have redesigned workflows: nearly three-quarters did so, compared with about one-quarter of other respondents. They are also twice as likely to say senior leaders visibly back the work and that defined processes exist to measure impact.","AIwire's coverage of the report adds that one in five respondents said AI operating costs, including token costs, have constrained their use of AI. The figures are self-reported survey answers, so read them as directional. For a smaller company, the lesson is less about matching big-company budgets and more about copying what the leaders do: redesign the workflow, then measure it."],"takeaway":"Pick one workflow, redesign it around the agent rather than bolting the agent on, and set a measurable target before you spend more on tools.","sources":[{"title":"The state of AI in 2026: On the road to ROI","publisher":"McKinsey & Company","url":"https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai"},{"title":"McKinsey Report: Enterprise AI Is Becoming a Two-Speed Race","publisher":"AIwire","url":"https://www.hpcwire.com/aiwire/2026/09/02/mckinsey-report-enterprise-ai-is-becoming-a-two-speed-race/"}]},{"id":"2026-10-23","date":"2026-10-23","title":"Uber moves from a 1,000-person pilot to 30,000 agent users, with no results published yet","body":["On October 22, OpenAI announced that Uber is rolling out ChatGPT Work to more than 30,000 employees worldwide, expanding from an initial pilot of 1,000. ChatGPT Work is an agent that connects to Google Drive, Gmail, Google Calendar and Slack, with GPT-6.1 Sol as the default model. OpenAI says the rollout is supported by Uber's internal library of AI skills, a set of approved integrations and dedicated employee training. Tech Times reports that engineers stay on Codex while operations, finance, marketing and product staff get ChatGPT Work.","The notable part is the method: a small pilot, a curated list of integrations, shared reusable skills and training, rather than turning the tool on and hoping. Tech Times also reports that administrators can restrict plugins and data sources and can see what the agent did, when, and with which data. That control detail comes from the article's own reporting rather than OpenAI's announcement page, so verify it before relying on it.","What is missing is evidence of payoff. Tech Times says Uber has not disclosed productivity metrics, and that both companies plan to publish adoption figures later. The article also calls this the largest single-company agentic deployment on record, which is its own characterization and not independently verified. Treat the rollout as a model for how to scale, and wait for the numbers before treating it as proof of return."],"takeaway":"Copy the rollout pattern of a small pilot, approved integrations, shared skills and training, but define the productivity metric you will publish internally before you widen access.","sources":[{"title":"Uber ChatGPT Work rollout","publisher":"OpenAI","url":"https://openai.com/index/uber-chatgpt-work-rollout/"},{"title":"Uber Puts Agentic AI on Every Desktop: ChatGPT Work Rolls Out to All 30,000 Employees","publisher":"Tech Times","url":"https://www.techtimes.com/articles/329404/20261023/uber-puts-agentic-ai-every-desktop-chatgpt-work-rolls-out-all-30000-employees.htm"}]},{"id":"2026-10-22","date":"2026-10-22","title":"Legacy systems and unclear ownership, not strategy, are slowing agent rollouts","body":["Redwood Software's October 22 benchmark report, based on a survey of 300 senior technology, risk and AI leaders fielded by Leger Opinion, found that 89 percent increased agentic deployment in the past year and 54 percent report scaling or mature adoption. The brake is existing systems: 82 percent say legacy systems are a bigger obstacle than a lack of strategy, and only 42 percent report a strong ability to connect agents to legacy or core systems. Seventy-seven percent have had a negative consequence from an ungoverned agent, most often unexpected cloud costs.","Ownership is also blurry. Responsibility is split among IT operations, dedicated AI or automation teams and software engineering. Only 42 percent keep a centralized registry of deployed agents and 51 percent have real-time monitoring. Asked what would let them expand with confidence, 62 percent pointed to better observability and 58 percent to proven integration with core systems.","Anthropic's study of its own workplace shows the people side. Its interactive agent sessions spend around 80 percent of their time waiting for human input, and the share of employees' sessions spent on agent-management work rose from 10 percent to 22 percent between fall 2025 and spring 2026. Redwood sells orchestration software and Anthropic is studying itself, so treat both as directional."],"takeaway":"Name one accountable owner for agents, and map which core systems each agent must touch before you approve the next deployment.","sources":[{"title":"77% of Enterprises Have Paid a Price for Ungoverned AI Agents","publisher":"Redwood Software","url":"https://www.redwood.com/press-releases/ai-and-agentic-orchestration-benchmarks-report/"},{"title":"How employment is changing at Anthropic","publisher":"Anthropic","url":"https://www.anthropic.com/research/employment-at-anthropic"}]},{"id":"2026-10-21","date":"2026-10-21","title":"Half of companies saw an agent act unexpectedly, and few can trace or stop one","body":["Salt Security's State of Agentic AI and API Security 2H 2026 report, based on a survey of more than 380 security and technology professionals, found that 49.8 percent of organizations confirmed or suspected an AI agent took an unintended, unexpected or unauthorized action in the past year. Among those, more than half saw an unauthorized external API call or transaction, and over 40 percent saw an agent modify or delete data. Agents are already common in the sample: 86.4 percent have at least one running, and 59.5 percent run more than ten.","The weak spot is visibility. Only 12.5 percent can consistently trace an agent's full path from instruction to outcome, and only 17.5 percent can automatically stop an agent that misbehaves in production. Nearly a third, 32.9 percent, found an unauthorized, shadow or misconfigured MCP server in the past year.","Controls are spreading among large firms, though. KPMG's Q3 AI Pulse, covering 314 leaders at U.S. organizations with at least $1 billion in revenue, found 74 percent include cost reviews in AI approvals, 43 percent use usage or token budgets, and 49 percent have defined high-risk use cases where agents may not decide autonomously. Salt sells API security and KPMG's sample is large enterprises only, so read both as directional."],"takeaway":"Before your next agent goes live, confirm you can trace what it did and shut it off quickly, and list the actions it may never take on its own.","sources":[{"title":"Nearly Half of Organisations Report Unauthorised AI Agent Actions, Research Finds","publisher":"IT Security Guru","url":"https://www.itsecurityguru.org/2026/10/14/nearly-half-of-organisations-report-unauthorised-ai-agent-actions-research-finds/"},{"title":"AI's Value Story Sharpens as Organizations Gain Confidence in Governance, Accountability and Workforce Adoption","publisher":"KPMG","url":"https://kpmg.com/us/en/media/news/q3-ai-pulse-2026.html"}]},{"id":"2026-10-20","date":"2026-10-20","title":"Teams trust AI to investigate, but far fewer let it fix things on its own","body":["A pattern is emerging in how companies hand work to agents: read-only access is easy to approve, write access is not. Grafana Labs' 2026 State of Observability report, run with ETR, found 68 percent of organizations have moved AI past investigation into active pilots or production in observability. Eighty-five percent are comfortable with AI doing read-only investigations, but only 52 percent are comfortable with fully autonomous remediation. Respondents named a proven accuracy track record and better explainability, 45 percent each, as the clearest ways to build that trust.","A separate TeamViewer and Sapeo Research survey of 4,200 managers and employees across ten countries, fielded in May, shows the same hesitation. Sixty-one percent prefer AI take no independent action at all. Yet 70 percent are comfortable with autonomous action if they can step in when needed, and they ask for protections such as notifications before major changes (36 percent), visible activity logs (33 percent) and rollback options (31 percent). The report also found senior executives were far less likely than middle managers to want a human involved in security decisions, 24 percent versus 46 percent.","Both studies come from vendors selling in this space, and the TeamViewer data predates recent headlines about agent security, so treat the figures as directional. The practical read is that autonomy is earned in stages, and visibility is what people are really asking for."],"takeaway":"Start every agent on read-only access, and grant write permissions one workflow at a time only after you have logs, alerts and a tested rollback in place.","sources":[{"title":"Survey: AI Adoption Is Outpacing Trust as Enterprises Push Toward Autonomous Operations","publisher":"Grafana Labs","url":"https://grafana.com/press/2026/10/19/survey-ai-adoption-is-outpacing-trust-as-enterprises-push-toward-autonomous-operations/"},{"title":"Agentic adoption - enterprise leaders are growing more confident, but middle managers beg to differ","publisher":"diginomica","url":"https://diginomica.com/agentic-adoption-enterprise-leaders-are-growing-more-confident-middle-managers-beg-differ"}]},{"id":"2026-10-19","date":"2026-10-19","title":"Small businesses are adopting AI agents fast, but few have written rules for them","body":["Agents are no longer just an enterprise story. SBE Council's October survey of 516 owners of businesses with 2 to 99 employees, fielded September 11-19 by TechnoMetrica, found 58 percent use AI agents regularly or occasionally, and another 14 percent are considering or planning adoption. Only 16 percent said AI is eliminating more jobs than it creates.","The gap is policy. Pax8, a cloud marketplace serving small-business IT providers, cites its own research showing 90 percent of SMBs use or experiment with AI, yet only 23 percent have documented AI policies and 47 percent have found unauthorized shadow AI in their organizations. On October 19 Pax8 launched 8os, a platform that lets managed service providers govern and deploy agents for small customers, with hard spending caps and partner-set pricing. Pax8 has not disclosed pricing, and general availability is planned for early 2027.","Both sources have an interest in the story, and SBE Council's article does not give method details for some of its other figures, so read the numbers as directional. Still, Pax8's president put the common mistake plainly: investing in tools before fixing the processes they are meant to automate. For a small team, a one-page policy and a clear process come before the next subscription."],"takeaway":"Before adding another agent, write a one-page policy covering approved tools, data allowed, and who reviews output, and fix the process the agent will automate.","sources":[{"title":"New Small Business Check-Up Survey: Main Street Businesses Are Powering Through 2026","publisher":"SBE Council","url":"https://sbecouncil.org/2026/10/08/new-small-business-check-up-survey-main-street-businesses-are-powering-through-2026/"},{"title":"Pax8 launches 8os to help MSPs manage the agentic workforce","publisher":"IT Europa","url":"https://www.iteuropa.com/news/pax8-launches-8os-help-msps-manage-agentic-workforce"}]},{"id":"2026-10-18","date":"2026-10-18","title":"AI agents are in production, but oversight is eating the productivity gains","body":["Two surveys published this month suggest agent adoption has moved past pilots, and the bill is now showing up in oversight. G2 surveyed 1,019 B2B decision-makers in July: 66 percent have agents in limited or full production, and 86 percent bought agent software or services in the past year. But 31 percent say employees spend at least six hours a week overseeing agent work, 45 percent say oversight and rework consume more than a quarter of expected productivity gains, and 46 percent report higher-than-expected operating costs.","Governance is not keeping pace. In the same G2 data, only 27 percent keep a central agent registry and 14 percent have real-time observability into unusual behavior, costs or risks. IBM's survey of 3,221 executives at large EMEA organizations, run by Censuswide in September, found 35 percent running agentic AI in production but only 37 percent saying their governance is designed to scale with it. Eighty percent said an AI-related incident had reached the board or C-suite in the past year, yet only 40 percent of those changed their governance policy.","Both studies come from vendors with a stake in the topic, so treat the exact numbers as directional. The pattern is still useful: the cost of an agent is not just licenses or usage, it is the human time spent checking its work. Budget for that time before you scale, not after."],"takeaway":"Before adding your next agent, assign a named owner, register it centrally, and measure weekly review hours so you know its net productivity gain.","sources":[{"title":"G2 Research: AI Agents Have Moved From Pilot to Production, But Oversight Comes at a Cost","publisher":"G2 via PR Newswire","url":"https://www.prnewswire.com/news-releases/new-g2-research-ai-agents-have-moved-from-pilot-to-production-but-oversight-comes-at-a-cost-302908654.html"},{"title":"IBM Study: Eight in Ten EMEA Enterprises Escalate AI Incidents to Board or C-Suite as AI Agents Test Governance","publisher":"IBM Newsroom","url":"https://newsroom.ibm.com/2026-10-14-ibm-study-eight-in-ten-emea-enterprises-escalate-ai-incidents-to-board-or-c-suite-as-ai-agents-test-governance"}]}]}</script>
+<script>
+(function () {
+  var LIVE_FEED = "https://rohit-puri-website.vercel.app/posts.json";
+  var PAGE = 10;
+  var list = document.getElementById("posts");
+  var more = document.getElementById("more");
+  var showAll = false;
+  var posts = [];
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function formatDate(iso) {
+    return new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+  }
+
+  function renderPost(p, i) {
+    var art = el("article", "post");
+    art.id = "post-" + p.id;
+    var meta = el("div", "post-meta");
+    if (i === 0) meta.appendChild(el("span", "latest", "Latest"));
+    var time = el("time", null, formatDate(p.date));
+    time.dateTime = p.date;
+    meta.appendChild(time);
+    meta.appendChild(el("span", null, "AI-assisted research"));
+    var body = el("div", "post-body");
+    body.appendChild(el("h2", null, p.title));
+    (p.body || []).forEach(function (para) { body.appendChild(el("p", null, para)); });
+    if (p.takeaway) body.appendChild(el("p", "takeaway", p.takeaway));
+    if (p.sources && p.sources.length) {
+      var src = el("div", "sources");
+      src.appendChild(el("p", "label", "Sources"));
+      var ol = el("ol");
+      p.sources.forEach(function (s) {
+        var li = el("li");
+        var a = el("a", null, s.title);
+        a.href = s.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        li.appendChild(a);
+        if (s.publisher) li.appendChild(el("span", null, " from " + s.publisher));
+        ol.appendChild(li);
+      });
+      src.appendChild(ol);
+      body.appendChild(src);
+    }
+    art.appendChild(meta);
+    art.appendChild(body);
+    return art;
+  }
+
+  function render() {
+    var shown = showAll ? posts : posts.slice(0, PAGE);
+    list.replaceChildren.apply(list, shown.map(renderPost));
+    more.hidden = showAll || posts.length <= PAGE;
+    document.getElementById("post-count").textContent = posts.length
+      ? posts.length + " posts, latest " + formatDate(posts[0].date)
+      : "";
+  }
+
+  function load(data) {
+    var next = (data && data.posts) || [];
+    if (!next.length) return;
+    posts = next.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    render();
+  }
+
+  document.getElementById("more-btn").addEventListener("click", function () {
+    showAll = true;
+    render();
+  });
+
+  load(JSON.parse(document.getElementById("posts-data").textContent));
+
+  fetch(LIVE_FEED + "?v=" + Date.now())
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(load)
+    .catch(function () {});
+})();
+</script>
+</body>
+</html>

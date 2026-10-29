@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Blog | Rohit Puri</title>
+<link rel="stylesheet" href="rohit.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a class="wordmark" href="/">Rohit Puri</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="/career">Oracle career</a>
+      <a href="/products">Products &amp; Practice</a>
+      <a href="/blog" aria-current="page">Blog</a>
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/rohit-puri-882534/">Connect</a>
+      <button class="nav-menu" type="button">Menu</button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero" style="padding-bottom:56px">
+    <div class="container hero-text">
+      <p class="kicker">Blog, daily</p>
+      <h1 style="max-width:760px">Notes on AI agent adoption.</h1>
+      <p class="lede measure">One short post every day at 11 a.m. Pacific on how real organizations are adopting AI agents: what's working, what's stalling, and what to do about it. Every post links its sources.</p>
+      <ul class="blog-meta">
+        <li id="post-count"></li>
+        <li>Written with AI-assisted research</li>
+        <li>Always check the sources</li>
+      </ul>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="posts" id="posts"></div>
+    <div class="more" id="more" hidden><button type="button" id="more-btn">Show earlier posts</button></div>
+    <p class="note" style="max-width:680px;margin-top:40px">Posts are drafted by an AI research agent that reads the cited sources, then published automatically. They are summaries, not professional advice, and may contain errors. Please follow the source links before relying on anything here. Views are independent and are not an Oracle statement.</p>
+  </div>
+
+  <section class="section connect" style="margin-top:88px">
+    <div class="container cols-2">
+      <div class="stack">
+        <h2>Have a hard AI or cloud problem? Let's talk.</h2>
+        <p class="muted">Whether it's a leadership role, an AI project for your business, or a question about something I've built, the fastest way to reach me is LinkedIn.</p>
+        <div class="actions"><a class="btn btn-primary" href="https://www.linkedin.com/in/rohit-puri-882534/">Message me on LinkedIn</a></div>
+      </div>
+      <dl class="contact-list" style="align-self:end">
+        <div><dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/rohit-puri-882534/">linkedin.com/in/rohit-puri-882534</a></dd></div>
+        <div><dt>Golden Gate Solutions</dt><dd><a href="https://ggsgroup.com/">ggsgroup.com</a></dd></div>
+        <div><dt>Brisqo</dt><dd><a href="https://www.brisqo.net/">brisqo.net</a></dd></div>
+      </dl>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="container">
+    <span>Rohit Puri, Santa Clara, California</span>
+    <nav aria-label="Footer">
+      <a href="/career">Oracle career</a>
+      <a href="/products">Products &amp; Practice</a>
+      <a href="/blog">Blog</a>
+    </nav>
+    <p class="preview-note">Redesign preview. The current site is <a href="https://rohit-puri-website.vercel.app/">rohit-puri-website.vercel.app</a>. Golden Gate Solutions preview: <a href="/ggs">/ggs</a>.</p>
+  </div>
+</footer>
+
+<script type="application/json" id="posts-data">__POSTS_JSON__</script>
+<script>
+(function () {
+  var LIVE_FEED = "https://rohit-puri-website.vercel.app/posts.json";
+  var PAGE = 10;
+  var list = document.getElementById("posts");
+  var more = document.getElementById("more");
+  var showAll = false;
+  var posts = [];
+
+  function el(tag, cls, text) {
+    var n = document.createElement(tag);
+    if (cls) n.className = cls;
+    if (text != null) n.textContent = text;
+    return n;
+  }
+
+  function formatDate(iso) {
+    return new Date(iso + "T12:00:00Z").toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: "UTC" });
+  }
+
+  function renderPost(p, i) {
+    var art = el("article", "post");
+    art.id = "post-" + p.id;
+    var meta = el("div", "post-meta");
+    if (i === 0) meta.appendChild(el("span", "latest", "Latest"));
+    var time = el("time", null, formatDate(p.date));
+    time.dateTime = p.date;
+    meta.appendChild(time);
+    meta.appendChild(el("span", null, "AI-assisted research"));
+    var body = el("div", "post-body");
+    body.appendChild(el("h2", null, p.title));
+    (p.body || []).forEach(function (para) { body.appendChild(el("p", null, para)); });
+    if (p.takeaway) body.appendChild(el("p", "takeaway", p.takeaway));
+    if (p.sources && p.sources.length) {
+      var src = el("div", "sources");
+      src.appendChild(el("p", "label", "Sources"));
+      var ol = el("ol");
+      p.sources.forEach(function (s) {
+        var li = el("li");
+        var a = el("a", null, s.title);
+        a.href = s.url;
+        a.target = "_blank";
+        a.rel = "noopener noreferrer";
+        li.appendChild(a);
+        if (s.publisher) li.appendChild(el("span", null, " from " + s.publisher));
+        ol.appendChild(li);
+      });
+      src.appendChild(ol);
+      body.appendChild(src);
+    }
+    art.appendChild(meta);
+    art.appendChild(body);
+    return art;
+  }
+
+  function render() {
+    var shown = showAll ? posts : posts.slice(0, PAGE);
+    list.replaceChildren.apply(list, shown.map(renderPost));
+    more.hidden = showAll || posts.length <= PAGE;
+    document.getElementById("post-count").textContent = posts.length
+      ? posts.length + " posts, latest " + formatDate(posts[0].date)
+      : "";
+  }
+
+  function load(data) {
+    var next = (data && data.posts) || [];
+    if (!next.length) return;
+    posts = next.slice().sort(function (a, b) { return a.date < b.date ? 1 : -1; });
+    render();
+  }
+
+  document.getElementById("more-btn").addEventListener("click", function () {
+    showAll = true;
+    render();
+  });
+
+  load(JSON.parse(document.getElementById("posts-data").textContent));
+
+  fetch(LIVE_FEED + "?v=" + Date.now())
+    .then(function (r) { return r.ok ? r.json() : null; })
+    .then(load)
+    .catch(function () {});
+})();
+</script>
+</body>
+</html>
